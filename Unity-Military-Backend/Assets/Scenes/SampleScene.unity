@@ -16098,7 +16098,6 @@ GameObject:
   - component: {fileID: 1921695962}
   - component: {fileID: 1921695961}
   - component: {fileID: 1921695960}
-  - component: {fileID: 1921695963}
   m_Layer: 5
   m_Name: Screen2_Button_Accept
   m_TagString: Untagged
@@ -16169,7 +16168,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1921695963}
+      - m_Target: {fileID: 1165992514}
         m_MethodName: acceptClick
         m_Mode: 1
         m_Arguments:
@@ -16216,23 +16215,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921695958}
   m_CullTransparentMesh: 0
---- !u!114 &1921695963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1921695958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 977f95e6159da3f47b23105954a3c565, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checked_num_Text: {fileID: 1371561962}
-  num_Text: {fileID: 1498294899}
-  vacation_applyButton: {fileID: 1169434571215031613, guid: 20f88dbb513ec9f4cb0ba778226caa22,
-    type: 3}
-  content: {fileID: 1145921375}
 --- !u!1 &1922732271
 GameObject:
   m_ObjectHideFlags: 0
@@ -18002,16 +17984,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2133916971}
     m_Modifications:
-    - target: {fileID: 3236359990736228913, guid: 6a5a8a4954fc29746986156c01e020eb,
-        type: 3}
-      propertyPath: m_Name
-      value: Screen3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3236359990736228913, guid: 6a5a8a4954fc29746986156c01e020eb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3236359989824747847, guid: 6a5a8a4954fc29746986156c01e020eb,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -18236,6 +18208,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236359990736228913, guid: 6a5a8a4954fc29746986156c01e020eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Screen3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236359990736228913, guid: 6a5a8a4954fc29746986156c01e020eb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3236359990766733710, guid: 6a5a8a4954fc29746986156c01e020eb,
         type: 3}

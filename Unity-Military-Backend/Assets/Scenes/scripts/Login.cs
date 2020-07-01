@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using Proyecto26;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Login : MonoBehaviour
 {
-    [SerializeField] InputField idField;
-    [SerializeField] InputField pwField;
+    [SerializeField] public InputField idField;
+  [SerializeField] public InputField pwField;
     [SerializeField] Msgbox msgbox;
     [SerializeField] GameObject screen;
     [SerializeField] GameObject parent;
@@ -32,17 +33,28 @@ public class Login : MonoBehaviour
 
     private void login()
     {
-        bool check = true;
+        SoldierDataManager sdm = null;
 
-        if (check)
+        RestClient.Get<user>("https://fir-unity-6f472.firebaseio.com/soldiers/" + idField.text + ".json").Then(response =>
         {
-            screen.SetActive(true);
-            parent.SetActive(false);
-        }
-        else
-        {
-            msgbox.gameObject.SetActive(true);
-            msgbox.openMessage("아이디 또는 패스워드가 일치하지 않습니다.");
-        }
+            user up = response;
+
+            up = response;
+            Debug.Log(up.nam);
+            if (up.birt.Equals(pwField.text))
+            {
+                screen.SetActive(true);
+                parent.SetActive(false);
+                SoldierScreen1.soldnumber = idField.text;
+            }
+            else
+            {
+                msgbox.gameObject.SetActive(true);
+                msgbox.openMessage("아이디 또는 패스워드가 일치하지 않습니다.");
+            }
+
+        });
+        
+        
     }
 }

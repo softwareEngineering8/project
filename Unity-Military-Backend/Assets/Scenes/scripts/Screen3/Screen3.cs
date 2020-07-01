@@ -77,7 +77,7 @@ public class Screen3 : MonoBehaviour
                  DateTime randArriveDate = randDepartDate.AddDays(randPeriod);
                  int vacaKind = UnityEngine.Random.Range(0, 2);
                  */
-                vacaList.Add(new TempVacation(acompsplit[0], UnityEngine.Random.Range(0, 2), deprt, arv));
+                vacaList.Add(new TempVacation(acompsplit[0], UnityEngine.Random.Range(0, 2), deprt, arv, 0, "vacaname"));
             }
           
 
@@ -114,9 +114,9 @@ public class Screen3 : MonoBehaviour
 
             for (int i = 0; i < num; i++)
         {
-            //int comp1 = DateTime.Compare(startDate, vacaList[i].arriveDate);
-            //int comp2 = DateTime.Compare(vacaList[i].departDate, endDate);
-            //if (comp1<0 && comp2<0)
+            int comp1 = DateTime.Compare(startDate, vacaList[i].arriveDate);
+            int comp2 = DateTime.Compare(vacaList[i].departDate, endDate);
+            if (comp1<0 && comp2<0)
             {
                 obj = Instantiate(tableObject, transform.position, transform.rotation);
                 

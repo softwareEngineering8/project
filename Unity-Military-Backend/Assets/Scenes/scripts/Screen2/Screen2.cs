@@ -202,18 +202,20 @@ public class Screen2 : MonoBehaviour
                    acceptedstr =acceptedstr+ "&" + peopleAr[i] + ";" + departAr[i] + ";" + arriveAr[i];
                     //Debug.Log(vacation_buttons[i]);
                     deleteSelectedButton();
-                   // Destroy(vacation_buttons[i]);
+                    Debug.Log(acceptedstr);
+                    // Destroy(vacation_buttons[i]);
                 }
                 //if you run the below code then it will delete from the server just try to figure out how to delete from UI
-                /*if(!vacation_buttons_Select[i])
+                if(!vacation_buttons_Select[i])
                 {
                     peoplestr = peoplestr  + peopleAr[i] + ",";
                     depstr = depstr  +departAr[i] + ",";
                     arrstr = arrstr + arriveAr[i] + ",";
                     vk = vk + vackindAr[i] + ",";
                     vak = vak + vacapplykindAr[i] + ",";
-                }*/
-               
+                }
+                Debug.Log(acceptedstr);
+
             }
             /**/
             Debug.Log("-0-"+peoplestr);
@@ -229,14 +231,13 @@ public class Screen2 : MonoBehaviour
                 accRejVacations ar = new accRejVacations();
                 RestClient.Put("https://fir-unity-6f472.firebaseio.com/accRejVacations/.json", ar);
 
-                /*vacapply v3 = new vacapply();
+                vacapply v3 = new vacapply();
                 v3.people = peoplestr;
                 v3.depart = depstr;
                 v3.arrive = arrstr;
                 v3.vacapplykind = vak;
                 v3.vackind = vk;
-
-                RestClient.Put("https://fir-unity-6f472.firebaseio.com/vacapply.json", v3);*/
+                RestClient.Put("https://fir-unity-6f472.firebaseio.com/vacapply.json", v3);
                 
             });
 
