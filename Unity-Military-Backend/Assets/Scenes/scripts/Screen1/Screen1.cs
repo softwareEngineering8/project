@@ -31,6 +31,7 @@ public class Screen1 : MonoBehaviour
 
     public static string nam, soldnu, birt, affiliatio, phon;
     public static Screen1 scr;
+    public GameObject AddSoldierButton;
 
     Soldiers[] s;
     int num = 20;
@@ -80,29 +81,24 @@ public class Screen1 : MonoBehaviour
     void createButtons(string[] num)
     {
         GameObject obj;
-        RectTransform rt;
-        
+        RectTransform rt;   
 
-
-
-        for (int i=0; i<num.Length; i++)
+        for (int i=1; i<num.Length; i++)
         {
             
             obj = Instantiate(soldierButton,transform.position,transform.rotation);
             //RetreiveSoldiers(num[i]);
-            //Debug.Log(num[i]);
-
+            //Debug.Log(num[i]);           
             
-            
-           // obj.transform.GetChild(1).GetComponent<Text>().text = up.nam;
-            obj.transform.GetChild(1).GetComponent<UnityEngine.UI.Text>().text = num[i];
+            // obj.transform.GetChild(1).GetComponent<Text>().text = up.nam;
+            //obj.transform.GetChild(1).GetComponent<UnityEngine.UI.Text>().text = num[i];
 
             obj.transform.SetParent(content.transform);
             rt = (RectTransform)obj.transform;
             rt.anchoredPosition = new Vector2(-375f + 107f*(i%8),338.7f - 145.7f*(int)(i/8));
             
             Screen1_Button bb = obj.transform.GetChild(0).GetComponent<Screen1_Button>();            
-            bb.setButton(num[i], "name", "affiliation", transform.GetComponent<Screen1>());
+            bb.setButton(num[i], "name_test", "affiliation", transform.GetComponent<Screen1>()); // if u change name here the button will get name
             
         }
 
@@ -114,6 +110,27 @@ public class Screen1 : MonoBehaviour
 
         Screen1_Add_new add_button = obj.transform.GetComponent<Screen1_Add_new>();
         add_button.setButton(transform.GetComponent<Screen1>());
+        AddSoldierButton = obj;
+    }
+
+    void addButtons(string[] num)
+    {
+        GameObject obj;
+        RectTransform rt;
+
+        int len = num.Length;
+
+        obj = Instantiate(soldierButton, transform.position, transform.rotation);
+        obj.transform.SetParent(content.transform);
+        rt = (RectTransform)obj.transform;
+        rt.anchoredPosition = new Vector2(-375f + 107f * ((len-1) % 8), 338.7f - 145.7f * (int)((len-1) / 8));
+
+        Screen1_Button bb = obj.transform.GetChild(0).GetComponent<Screen1_Button>();
+        bb.setButton(num[len-1], "name", "affiliation", transform.GetComponent<Screen1>()); // if u change name here the button will get name
+
+        obj = AddSoldierButton;
+        rt = (RectTransform)obj.transform;
+        rt.anchoredPosition = new Vector2(-375f + 107f * ((len) % 8), 338.7f - 145.7f * (int)((len) / 8));
     }
 
     public void soldierButtonClick(string num)
@@ -185,7 +202,7 @@ public class Screen1 : MonoBehaviour
             ids n = new ids();
             n.s = n2.s + "," + soldnu;
             RestClient.Put("https://fir-unity-6f472.firebaseio.com/ids.json", n);
-            createButtons(n.s.Split(','));
+            addButtons(n.s.Split(','));
         });
 
         SoldierInfoScreen_Home.SetActive(false);

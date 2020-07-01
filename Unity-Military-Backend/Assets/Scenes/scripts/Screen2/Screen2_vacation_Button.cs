@@ -41,7 +41,7 @@ public class Screen2_vacation_Button : MonoBehaviour
         vacakind = _vacaKind;
         vacaApplyKind = _vacaApplyKind;
 
-        text_name.text = "Name : " + name;
+        text_name.text = "ID : " + name;
         text_departDate.text = (departDate.Year + "/" + departDate.Month + "/" + departDate.Day);
         text_arriveDate.text = (arriveDate.Year + "/" + arriveDate.Month + "/" + arriveDate.Day);
         TimeSpan dateDiff= arriveDate - departDate;
@@ -54,12 +54,12 @@ public class Screen2_vacation_Button : MonoBehaviour
         if (vacaApplyKind == 0)
         {
             img_vacaApplyKind.color = new Color(0.078f,0.568f,1f);
-            img_vacaApplyKind.transform.GetChild(0).GetComponent<Text>().text = "Apply";
+            img_vacaApplyKind.transform.GetChild(0).GetComponent<Text>().text = "New";
         }            
         else
         {
             img_vacaApplyKind.color = new Color(1f, 0.403f, 0.364f);
-            img_vacaApplyKind.transform.GetChild(0).GetComponent<Text>().text = "Cancel";
+            img_vacaApplyKind.transform.GetChild(0).GetComponent<Text>().text = "Cancelled";
         }
             
     }
